@@ -73,7 +73,7 @@ The first release by the new team was version 1.3.3 in early 2023. Early work fo
 
 ### Core functionality
 
-Work on **fixing [#988](https://github.com/bit-team/backintime/issues/988) and [#994](https://github.com/bit-team/backintime/issues/994) is still ongoing** as of this writing. These bugs are largely understood now, but any possible fix could potentially have grave consequences for existing backups, which have not been throroughly tested for.
+Work on **fixing [#988](https://github.com/bit-team/backintime/issues/988) and [#994](https://github.com/bit-team/backintime/issues/994) is still ongoing** as of this writing. These bugs are largely understood now, but any possible fix could potentially have grave consequences for existing backups, which have not been thoroughly tested for.
 
 Given that encfs suffers from known security issues and is not actively maintained, BackInTime is preparing to deprecate it in the foreseeable future.
 
