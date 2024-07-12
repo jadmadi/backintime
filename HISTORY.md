@@ -1,15 +1,15 @@
-# Looking Back in Time at BackInTime
+# Looking back in time at _Back In Time_
 
 *by Michael Büker, 2024*
 
-The history of the BackInTime project, which at the time of this writing already spans nearly 16 years, is best understood in four periods:
+The history of the _Back In Time_ project, which at the time of this writing already spans nearly 16 years, is best understood in four periods:
 
 1. The **First Era** from 2008 to 2012, releases 0.5 to ~1.0.12
 2. The **Second Era** from 2012 to 2019, releases ~1.0.14 to 1.2
 3. A **Dark Age** from 2019 to 2022, releases 1.2.0 to 1.3.2
 4. The **Third Era** since 2022, since release 1.3.3
 
-These periods correspond roughly to who was maintaining and developing BackInTime. Important technical and organizational changes happened at various moments in between.
+These periods correspond roughly to who was maintaining and developing _Back In Time_. Important technical and organizational changes happened at various moments in between.
 
 For details, refer to [CHANGES](CHANGES).
 
@@ -17,11 +17,11 @@ For details, refer to [CHANGES](CHANGES).
 
 ### Maintenance
 
-BackInTime was created by **Oprea Dan** and first published on a private blog in late 2008. Shortly thereafter, collaborative development started happening on Launchpad. Sometime around 2010, development and publication appears to have moved entirely to Launchpad, with the private blog being discontinued.
+_Back In Time_ was created by **Oprea Dan** and first published on a private blog in late 2008 ([wayback link](https://web.archive.org/web/20081014041759/http://www.le-web.org/2008/10/03/back-in-time-version-05/)). Shortly thereafter, collaborative development started happening on Launchpad. Sometime around 2010, development and publication appears to have moved entirely to Launchpad, with the private blog being discontinued.
 
 ### Core functionality
 
-At first, BackInTime used `diff` to compare the latest snapshot with the source, in order to check if a new snapshot was necessary. If the answer was yes, it would use `cp` to create a new snapshot.
+At first, _Back In Time_ used `diff` to compare the latest snapshot with the source, in order to check if a new snapshot was necessary. If the answer was yes, it would use `cp` to create a new snapshot.
 
 This was changed in version 0.9.2 in early 2009, when `diff` was replaced by `rsync` for the comparison. Copying was still done by `cp`, apparently without special permissions handling.
 
@@ -29,7 +29,7 @@ This changed when, shortly thereafter, version 0.9.24 introduced `fileinfo.bz2`,
 
 ### GUI
 
-Initially, BackInTime had only a GNOME GUI.
+Initially, _Back In Time_ had only a GNOME GUI.
 
 Version 0.9 from early 2009 separated the backend (`backintime-common`) from the GUI, allowing for different frontends. Over the course of 2009, finishing roughly with version 0.9.24, two separate frontends were completed: `backintime-gnome` and `backintime-kde4`.
 
@@ -39,7 +39,7 @@ Version 0.9 from early 2009 separated the backend (`backintime-common`) from the
 
 Around 2012, **Germar Reitze** took over publication, maintenance and further development from Oprea Dan.
 
-In early 2016, starting with version 1.1.10, development and publication moved to Github, leaving the Launchpad project mostly abandoned (except for translation management and PPA publication).
+In early 2016, starting with version 1.1.10, development and publication moved to Microsoft GitHub, leaving the Launchpad project mostly abandoned (except for translation management and PPA publication).
 
 ### Core functionality
 Development during the Second Era centered largely around remote backup capabilities.
@@ -59,7 +59,7 @@ In 2019, version 1.2.0 was released. It was the first release since version 1.1.
 
 Version 1.2.0 introduced a fundamental change: ***"make full-rsync mode default, remove the other mode"***. This meant that files would always be transferred by `rsync` instead of `cp`. Specifically, `rsync` was instructed to retain full ownership and permissions information when transferring the files to the backup (*in addition* to the information stored in `fileinfo.bz2`).
 
-This caused **bug [#988](https://github.com/bit-team/backintime/issues/988)**, which broke BackInTime's core functionality for any backup created with version <1.2.0 (unless "full rsync mode" had been enabled): many unchanged files were no longer hardlinked upon transferring, but unnecessarily copied. This led to very long backup times and high disk usage. A related bug with a somewhat smaller impact is [#994](https://github.com/bit-team/backintime/issues/994).
+This caused bug [#988](https://github.com/bit-team/backintime/issues/988), which broke _Back In Time_'s core functionality for any backup created with version <1.2.0 (unless "full rsync mode" had been enabled): many unchanged files were no longer hardlinked upon transferring, but unnecessarily copied. This led to very long backup times and high disk usage. A related bug with a somewhat smaller impact is [#994](https://github.com/bit-team/backintime/issues/994).
 
 As these bugs are currently understood, the underlying reason for the problem is differing ownership/permissions between the files in the source and on the backup drive. Since multiple hardlinks to the same file are, by definition, identical, they cannot have differing permissions. `rsync` fails to handle this case correctly when a new snapshot is created, leading to the files in question being copied unnecessarily.
 
