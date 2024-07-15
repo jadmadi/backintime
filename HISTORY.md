@@ -63,19 +63,19 @@ This caused bug [#988](https://github.com/bit-team/backintime/issues/988), which
 
 As these bugs are currently understood, the underlying reason for the problem is differing ownership/permissions between the files in the source and on the backup drive. Since multiple hardlinks to the same file are, by definition, identical, they cannot have differing permissions. `rsync` fails to handle this case correctly when a new snapshot is created, leading to the files in question being copied unnecessarily.
 
-With many users complaining and trading workarounds on Github, development soon came to a halt. Some bugs were fixed with version 1.3.0 in 2021, but [#988](https://github.com/bit-team/backintime/issues/988) and [#994](https://github.com/bit-team/backintime/issues/994) remained.
+With many users complaining and trading workarounds on Microsoft GitHub, development soon came to a halt. Some bugs were fixed with version 1.3.0 in 2021, but [#988](https://github.com/bit-team/backintime/issues/988) and [#994](https://github.com/bit-team/backintime/issues/994) remained.
 
 ## The Third Era: since 1.3.3 (since 2022)
 
-In early 2022, an epic discussion on the state of the project arose in [#1232](https://github.com/bit-team/backintime/issues/1232). Many users declared their love for BackInTime, and a few were ready to step up and restart development. With help and permission from Germar Reitze, **Christian Buhtz, Jürgen Altfeld and Michael Büker** formed a new core team. The team first curated and triaged over 200 open Github issues that had accumulated since 2019.
+In early 2022, an epic discussion on the state of the project arose in [#1232](https://github.com/bit-team/backintime/issues/1232). Many users declared their love for _Back In Time_, and a few were ready to step up and restart development. With help and permission from Germar Reitze, **Christian Buhtz**, **Jürgen Altfeld** and **Michael Büker** formed a new core team. The team first curated and triaged over 200 open issues that had accumulated since 2019.
 
-The first release by the new team was version 1.3.3 in early 2023. Early work focused on ensuring compatibility with rsync 3.2.4, fixing keyring issues for ssh operations, system tray functionality in both X11 and Wayland as well as testing, coding style and other modernizations to align BackInTime with current Python practices.
+The first release by the new team was version 1.3.3 in early 2023. Early work focused on ensuring compatibility with rsync 3.2.4, fixing keyring issues for SSH operations, system tray functionality in both X11 and Wayland as well as testing, coding style and other modernization to align _Back In Time_ with current Python practices.
 
 ### Core functionality
 
-Work on **fixing [#988](https://github.com/bit-team/backintime/issues/988) and [#994](https://github.com/bit-team/backintime/issues/994) is still ongoing** as of this writing. These bugs are largely understood now, but any possible fix could potentially have grave consequences for existing backups, which have not been thoroughly tested for.
+Work on fixing [#988](https://github.com/bit-team/backintime/issues/988) and [#994](https://github.com/bit-team/backintime/issues/994) is still ongoing as of this writing. These bugs are largely understood now, but any possible fix could potentially have grave consequences for existing backups, which have not been thoroughly tested for.
 
-Given that encfs suffers from known security issues and is not actively maintained, BackInTime is preparing to deprecate it in the foreseeable future.
+Given that EncFS suffers from known security issues and is not actively maintained, _Back In Time_ is preparing to deprecate it in the foreseeable future ([#1734](https://github.com/bit-team/backintime/issues/1734)).
 
 ### GUI
 
